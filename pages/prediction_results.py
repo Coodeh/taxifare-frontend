@@ -6,7 +6,13 @@ from zoneinfo import ZoneInfo
 
 from PIL import Image
 
-API_URL = st.secrets['API_BASE_URL']
+API_BASE_URL = st.secrets['API_BASE_URL']
+
+MODEL_ENDPOINTS = {
+    "Linear Regression": "/predict",
+    "Random Forest": "/predict_rf",
+    "Deep Learning": "/predict_dl"
+}
 
 st.set_page_config(
     page_title="Prediction results",
@@ -18,6 +24,10 @@ st.image(image, caption='Le Wagon', use_container_width=False)
 st.title(":blue[Prediction results]")
 st.write(":green[Here you can see the taxi ride cost based on your inputs].")
 
+selected_model = st.selectbox(
+    "Choose a model",
+    list(MODEL_ENDPOINTS.keys())
+)
 
 # Prediction
 if st.button("Predict fare"):
@@ -50,6 +60,10 @@ if st.button("Predict fare"):
         "dropoff_latitude": dropoff_latitude,
         "passenger_count": passenger_count
     }
+
+    endpoint = MODEL_ENDPOINTS[selected_model]
+
+    API_URL = API_BASE_URL + endpoint
 
     try:
 
