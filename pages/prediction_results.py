@@ -22,13 +22,13 @@ st.write(":green[Here you can see the taxi ride cost based on your inputs].")
 # Prediction
 if st.button("Predict fare"):
 
-    pickup_date = st.session_state.get("pickup_date", date(2013, 7, 6))
-    pickup_time = st.session_state.get("pickup_time", time(17, 0))
-    pickup_longitude = st.session_state.get("pickup_longitude", -73.985428)
-    pickup_latitude = st.session_state.get("pickup_latitude", 40.748817)
-    dropoff_longitude = st.session_state.get("dropoff_longitude", -73.985130)
-    dropoff_latitude = st.session_state.get("dropoff_latitude", 40.758896)
-    passenger_count = st.session_state.get("passenger_count", 1)
+    pickup_date = st.session_state.get("saved_pickup_date")
+    pickup_time = st.session_state.get("saved_pickup_time")
+    pickup_longitude = st.session_state.get("saved_pickup_longitude")
+    pickup_latitude = st.session_state.get("saved_pickup_latitude")
+    dropoff_longitude = st.session_state.get("saved_dropoff_longitude")
+    dropoff_latitude = st.session_state.get("saved_dropoff_latitude")
+    passenger_count = st.session_state.get("saved_passenger_count")
 
     pickup_datetime = datetime.combine(
         pickup_date,
