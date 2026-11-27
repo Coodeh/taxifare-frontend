@@ -5,7 +5,7 @@ from datetime import datetime, date, time
 from zoneinfo import ZoneInfo
 
 
-API_URL = "https://taxifare-api-944754681054.europe-west1.run.app/predict"
+API_URL = st.secrets['API_BASE_URL']
 
 
 st.set_page_config(
