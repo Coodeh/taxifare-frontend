@@ -4,16 +4,20 @@ import requests
 from datetime import datetime, date, time
 from zoneinfo import ZoneInfo
 
+from PIL import Image
 
 API_URL = st.secrets['API_BASE_URL']
-
 
 st.set_page_config(
     page_title="TaxiFare",
 )
 
-st.title("TaxiFare")
-st.write("Predict the price of your taxi ride in New York.")
+
+image = Image.open('images/wagon.png')
+st.image(image, caption='Le Wagon', use_container_width=False)
+
+st.title(":blue[TaxiFare]")
+st.write(":green[Predict the price of your taxi ride in New York].")
 
 
 # Date and time
